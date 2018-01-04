@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Waterfall</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div id="wrap">
+		<div class="item">
+			<img src="img/1.jpeg">
+		</div>
+		<div class="item">
+			<img src="img/2.jpeg">
+		</div>
+	</div>
+</body>
+<script>
+	var wrap = document.getElementById('wrap');
+	var items = wrap.children;
+	var gap = 10;
+	console.log(wrap);
+	console.log(items);
+	window.onload = function(){
+		var pageWidth = wrap.offsetWidth;
+		var itemWidth = items[0].offsetWidth;
+		var columns = parseInt(pageWidth/(itemWidth + gap));
+		console.log(columns);
+		var arr = [];
+		for (var i = 0; i < items.length; i++) {
+			if (i < columns) {
+				items[i].style.top = 0;
+				items[i].style.left = (itemWidth + gap) * i + 'px';
+				arr.push(items[i].offsetHeight);
+			} else {
+				var minHeight = arr[0];
+				var index = 0;
+				for (var j = 0; j < arr.length; j++) {
+					if (minHeight > arr[j]) {
+						minHeight = arr[j];
+						index = j;
+					}
+				}
+			}
+		}
+	}
+</script>
+</html>

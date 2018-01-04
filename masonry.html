@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Masonry</title>
+	<link href="img/icon.png" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+</head>
+<style>
+	#wrap {
+		height: auto;
+		width: 1200px;
+		margin: 50px auto;
+		border: 1px solid blue;
+	}
+	.grid {
+		height: 100%;
+		width: 100%;
+		border: 1px solid red;
+	}
+	.grid-item {
+		width: 200px;
+		margin: 10px;
+		border: 1px solid blue;
+	}
+	.grid-item img {
+		width: 100%;
+		height: auto;
+	}
+	.grid-item--width2 {
+		width: 200px;
+		height: 400px;
+		background-color: red;
+		border: 1px solid blue;
+	}
+</style>
+<body>
+	<div id="wrap">
+		<div class="grid">
+			<div class="grid-item">
+				<img src="img/1.jpeg">
+			</div>
+			<div class="grid-item grid-item--width2">
+				<img src="img/2.jpeg">
+			</div>
+			<div class="grid-item">
+				<img src="img/3.jpeg">
+			</div>
+			<div class="grid-item grid-item--width2">
+				<img src="img/4.jpeg">
+			</div>
+			<div class="grid-item">
+				<img src="img/5.jpeg">
+			</div>
+			<div class="grid-item grid-item--width2">
+				<img src="img/2.jpeg">
+			</div>
+			<div class="grid-item">
+				<img src="img/3.jpeg">
+			</div>
+			<div class="grid-item grid-item--width2">
+				<img src="img/4.jpeg">
+			</div>
+		</div>
+	</div>
+</body>
+<script src="bower_components/masonry-layout/dist/masonry.pkgd.min.js"></script>
+<script>
+	var elem = document.querySelector('.grid');
+	var msnry = new Masonry( elem, {
+	  // options
+	  itemSelector: '.grid-item',
+	  columnWidth: 236
+	});
+</script>
+</html>
